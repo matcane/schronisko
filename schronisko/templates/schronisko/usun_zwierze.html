@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Usuwanie zwierzaka{% endblock %}
+
+{% block content %}
+  <h1>Usuwanie zwierzaka</h1>
+  <p>{{ animal.imie }} {{ animal.typ }} {{ animal.rasa }} {{ animal.szacowany_wiek }} {{ animal.numer_ewidencyjny }}</p>
+  <p>Czy chcesz usunąć to zwierze?</p>
+  <form action="{% url 'usun_zwierze_done' id=animal.id %}">
+    <p><input type="submit" value="Usuń"></p>
+  </form>
+{% endblock %}

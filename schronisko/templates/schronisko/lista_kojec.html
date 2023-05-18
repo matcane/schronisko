@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Lista kojców w schronisku{% endblock %}
+
+{% block content %}
+  <h1>Lista kojców w schronisku</h1>
+  <span class="lista"><p style="color:#199973;;">Zwierze</p><a href="{% url 'lista_kojec' order='zwierze' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_kojec' order='-zwierze' %}"><img src="https://img.icons8.com/ios/50/null/down-squared--v1.png" height="30" width="30"/></a></span>
+  <span class="lista"><p style="color:#199973;;">Typ</p><a href="{% url 'lista_kojec' order='typ' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_kojec' order='-typ' %}"><img src="https://img.icons8.com/ios/50/null/down-squared--v1.png" height="30" width="30"/></a></span>
+  <span class="lista"><p style="color:#199973;;">Status</p><a href="{% url 'lista_kojec' order='status' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_kojec' order='-status' %}"><img src="https://img.icons8.com/ios/50/null/down-squared--v1.png" height="30" width="30"/></a></span>
+  <span class="lista"><p style="color:#199973;;">Numer</p><a href="{% url 'lista_kojec' order='numer' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_kojec' order='-numer' %}"><img src="https://img.icons8.com/ios/50/null/down-squared--v1.png" height="30" width="30"/></a></span>
+<hr style="border-bottom:1px solid #bbb;">
+  {% for kojec in kojce %}
+    <div>
+      <span class="lista">{% if kojec.zwierze %}{{ kojec.zwierze }}{% else %}brak{% endif %}</span>
+      <span class="lista">{{ kojec.typ }}</span>
+      <span class="lista">{{ kojec.status }}</span>
+      <span class="lista">{{ kojec.numer }}</span>
+      <span>
+          {% if kojec.status == "Wolne" %}
+            {% if kojec.typ == "Pies" and dogs %}
+                <a href="{% url 'dodaj_zwierze_kojec_pies' id=kojec.id %}"> Przypisz zwierze do tego kojca </a>
+            {% endif %}
+            {% if kojec.typ == "Kot" and cats %}
+                <a href="{% url 'dodaj_zwierze_kojec_kot' id=kojec.id %}"> Przypisz zwierze do tego kojca </a>
+            {% endif %}
+          {% else %}
+            <a href="{% url 'usun_zwierze_kojec' id=kojec.id %}"> Wypisz zwierze z tego kojca </a>
+          {% endif %}
+      </span>
+    </div>
+
+  {% endfor %}
+{% endblock %}

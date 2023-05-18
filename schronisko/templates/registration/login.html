@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {% load static %}
+        <link href="{% static 'css/base2.css' %}" rel="stylesheet">
+        <title>Logowanie</title>
+    </head>
+    <body>
+        <form action="{% url 'login' %}" method="post" class="form">
+            <p style="font-size:32px;">
+                Logowanie do systemu
+            </p>
+            {% if form.errors %}
+            <p style="color:#bd2020;font-size:22px;">
+                Nazwa użytkownika lub hasło jest nieprawidłowe.
+                Spróbuj ponownie.
+            </p>
+            {% endif %}
+            {% csrf_token %}
+            <div class="form__icon" aria-hidden="true"></div>
+            <div class="form__input-container">
+                <input
+                    aria-label="User"
+                    class="form__input"
+                    type="text"
+                    placeholder=" "
+                    name="username"
+                    autofocus=""
+                    autocapitalize="none"
+                    autocomplete="off"
+                    maxlength="150"
+                    required=""
+                    id="id_username"
+                />
+                <label class="form__input-label" for="id_username">Login</label>
+            </div>
+            <div class="form__input-container">
+                <input
+                    aria-label="Password"
+                    class="form__input"
+                    placeholder=" "
+                    type="password"
+                    name="password"
+                    autocomplete="off"
+                    required=""
+                    id="id_password"
+                />
+                <label class="form__input-label" for="id_password">Password</label>
+            </div>
+            <div class="form__spacer" aria-hidden="true"></div>
+            <button class="form__button">Zaloguj</button>
+        </form>
+    </body>
+</html>

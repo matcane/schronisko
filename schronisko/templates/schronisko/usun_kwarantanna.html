@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Panel główny{% endblock %}
+
+{% block content %}
+  <h1>Aktualizacja kwarantanny</h1>
+    <p>Czy chcesz wypisać zwierze {{ new_kwarantanna.zwierze }} z kwarantanny?</p>
+  <form action="{% url 'dodaj_kwarantanna_done' %}" method="post">
+        {% csrf_token %}
+        <p><input type="submit" value="Tak"></p>
+    </form>
+{% endblock %}

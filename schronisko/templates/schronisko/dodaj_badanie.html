@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Panel główny{% endblock %}
+
+{% block content %}
+  <h1>Dodawanie nowego badania</h1>
+  <form method="post">
+        {{ badanie_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Dodaj badanie"></p>
+    </form>
+{% endblock %}

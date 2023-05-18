@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Lista kart{% endblock %}
+
+{% block content %}
+  <h1>Lista kart -  <a href="{% url 'dodaj_karte' %}">Dodaj nowy wpis</a></h1>
+    <span class="lista"><p style="color:#199973;;">Zwierze</p><a href="{% url 'lista_karty' order='zwierze' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_karty' order='-zwierze' %}"><img src="https://img.icons8.com/ios/50/null/down-squared--v1.png" height="30" width="30"/></a></span>
+  <span class="lista"><p style="color:#199973;;">Szczepionka</p><a href="{% url 'lista_karty' order='szczepionka' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_karty' order='-szczepionka' %}"><img src="https://img.icons8.com/ios/50/null/down-squared--v1.png" height="30" width="30"/></a></span>
+  <span class="lista"><p style="color:#199973;;">Data szczepienia</p><a href="{% url 'lista_karty' order='data_szczepienia' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_karty' order='-data_szczepienia' %}"><img src="https://img.icons8.com/ios/50/null/down-squared--v1.png" height="30" width="30"/></a></span>
+  <span class="lista"><p style="color:#199973;;">Data następnego szczepienia</p><a href="{% url 'lista_karty' order='data_nastepnego_szczepienia' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_karty' order='-data_nastepnego_szczepienia' %}"><img src="https://img.icons8.com/ios/50/null/down-squared--v1.png" height="30" width="30"/></a></span>
+<hr style="border-bottom:1px solid #bbb;">
+  {% for karta in karty %}
+    <div>
+      <span class="lista">{{ karta.zwierze }}</span>
+      <span class="lista">{{ karta.szczepionka }}</span>
+      <span class="lista">{{ karta.data_szczepienia }}</span>
+      <span class="lista">{{ karta.data_nastepnego_szczepienia }}</span>
+    </div>
+  {% endfor %}
+{% endblock %}

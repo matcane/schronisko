@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Formularz adopcyjny{% endblock %}
+
+{% block content %}
+  <h1>Formularz adopcyjny</h1>
+  <form method="post">
+      {{ adopt_form.as_p }}
+      {% csrf_token %}
+      <p><input type="submit" value="Dodaj adopcję"></p>
+  </form>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Lista kwarantann zwierzat{% endblock %}
+
+{% block content %}
+  <h1>Lista kwarantann zwierząt</h1>
+    <span class="lista"><p style="color:#199973;;">Zwierze</p><a href="{% url 'lista_kwarantanna' order='zwierze' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_kwarantanna' order='-zwierze' %}"><img src="https://img.icons8.com/ios/50/null/down-squared--v1.png" height="30" width="30"/></a></span>
+    <span class="lista"><p style="color:#199973;;">Status</p><a href="{% url 'lista_kwarantanna' order='status' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_kwarantanna' order='-status' %}"><img src="https://img.icons8.com/ios/50/null/down-squared--v1.png" height="30" width="30"/></a></span>
+    <span class="lista"><p style="color:#199973;;">Miejsce</p><a href="{% url 'lista_kwarantanna' order='miejsce' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_kwarantanna' order='-miejsce' %}"><img src="https://img.icons8.com/ios/50/null/down-squared--v1.png" height="30" width="30"/></a></span>
+<hr style="border-bottom:1px solid #bbb;">
+  {% for kwarantanna in kwarantannay %}
+    <div>
+      <span class="lista">{{ kwarantanna.zwierze }}</span>
+      <span class="lista">{{ kwarantanna.status }}</span>
+      <span class="lista">{{ kwarantanna.miejsce }}</span>
+      <span>
+          {% if kwarantanna.status == "Nieodbywana" %}
+          <a href="{% url 'dodaj_kwarantanna' id=kwarantanna.id %}"> Zapisz na kwarantannę </a>
+          {% else %}
+          <a href="{% url 'usun_kwarantanna' id=kwarantanna.id %}"> Wypisz z kwarantanny </a>
+          {% endif %}
+      </span>
+    </div>
+  {% endfor %}
+{% endblock %}

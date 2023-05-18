@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+</head>
+<body>
+  <div id="header">
+      {% if request.user.is_authenticated %}
+        <ul class="menu">
+            <li>
+                <a href="{% url 'dashboard' %}">Panel główny</a>
+            </li>
+        </ul>
+      {% endif %}
+      <span class="user">
+          {% if request.user.is_authenticated %}
+            {% if request.user.pracownik %}
+                Zalogowano jako {{ request.user.pracownik }}!
+            {% endif %}
+            {% if request.user.weterynarz %}
+                Zalogowano jako {{ request.user.weterynarz }}!
+            {% endif %}
+            <a href="{% url 'logout' %}"> Wyloguj</a>
+          {% else %}
+            <a href="{% url 'login' %}">Zaloguj</a>
+          {% endif %}
+      </span>
+  </div>
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li class="{{ message.tags }}">
+          {{ message|safe }}
+            <a href="{{ message.close }}" class="close">x</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <div id="content">
+    {% block content %}
+    {% endblock %}
+      {% if request.user.is_authenticated %}
+            {% if request.user.pracownik %}
+                {% block pracownik %}
+                {% endblock %}
+            {% endif %}
+            {% if request.user.weterynarz %}
+                {% block weterynarz %}
+                {% endblock %}
+            {% endif %}
+        {% endif %}
+  </div>
+<button id="scroll-top" class="scroll-top">Do góry</button>
+<script>
+      function scrollToTop() {
+        window.scroll({
+          top: 0,
+          left: 0,
+          behavior: 'smooth'
+        });
+      }
+
+      // function to show or hide the scroll-top button based on scroll position
+      function toggleScrollTopButton() {
+        var scrollTopButton = document.getElementById("scroll-top");
+        if (window.pageYOffset > document.documentElement.clientHeight) {
+          scrollTopButton.style.display = "block";
+        } else {
+          scrollTopButton.style.display = "none";
+        }
+      }
+
+      // call the function on page load
+      toggleScrollTopButton();
+
+      // call the function on scroll
+      window.onscroll = function() {
+        toggleScrollTopButton();
+      };
+
+      document.getElementById("scroll-top").addEventListener("click", scrollToTop);
+    </script>
+</body>
+</html>

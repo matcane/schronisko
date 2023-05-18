@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Aktualizacja kojca{% endblock %}
+
+{% block content %}
+  <h1>Aktualizacja kojca</h1>
+    <p>Czy chcesz wypisać zwierze {{ old_animal }} z wybranego kojca?</p>
+  <form action="{% url 'zwierze_kojec_done' id=id %}" method="post">
+        {{ update_kojec_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Wypisz"></p>
+    </form>
+{% endblock %}

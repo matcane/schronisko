@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Lista badań{% endblock %}
+
+{% block content %}
+  <h1>Lista badań - <a href="{% url 'dodaj_badanie' %}">Dodaj nowy wpis</a></h1>
+    <span class="lista"><p style="color:#199973;;">Zwierze</p><a href="{% url 'lista_badania' order='zwierze' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_badania' order='-zwierze' %}"><img src="https://img.icons8.com/ios/50/null/down-squared--v1.png" height="30" width="30"/></a></span>
+    <span class="lista"><p style="color:#199973;;">Rodzaj badania</p><a href="{% url 'lista_badania' order='rodzaj_badania' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_badania' order='-rodzaj_badania' %}"><img src="https://img.icons8.com/ios/50/null/down-squared--v1.png" height="30" width="30"/></a></span>
+    <span class="lista"><p style="color:#199973;;">Data badania</p><a href="{% url 'lista_badania' order='data_badania' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_badania' order='-data_badania' %}"><img src="https://img.icons8.com/ios/50/null/down-squared--v1.png" height="30" width="30"/></a></span>
+<hr style="border-bottom:1px solid #bbb;">
+  {% for badanie in badania %}
+    <div>
+      <span class="lista">{{ badanie.zwierze }}</span>
+      <span class="lista">{{ badanie.rodzaj_badania }}</span>
+      <span class="lista">{{ badanie.data_badania }}</span>
+    </div>
+  {% endfor %}
+{% endblock %}

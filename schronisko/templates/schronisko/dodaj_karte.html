@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Dodawanie wpisu do karty{% endblock %}
+
+{% block content %}
+  <h1>Dodawanie wpisu do kraty</h1>
+  <form method="post">
+        {{ karta_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Dodaj wpis"></p>
+    </form>
+{% endblock %}

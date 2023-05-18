@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Aktualizacja kojca{% endblock %}
+
+{% block content %}
+  <h1>Aktualizacja kojca</h1>
+    <p>Czy chcesz przypisać zwierze {{ new_kwarantanna.zwierze }} do wybranego kojca?</p>
+  <form method="post">
+        {{ update_kojec_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Przypisz"></p>
+    </form>
+{% endblock %}

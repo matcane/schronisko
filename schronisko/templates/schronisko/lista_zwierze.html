@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Lista zwierząt w schronisku{% endblock %}
+
+{% block content %}
+  <h1>Lista zwierząt w schronisku</h1>
+  <span class="lista"><p style="color:#199973;;">Imie</p><a href="{% url 'lista_zwierze' order='imie' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_zwierze' order='-imie' %}"><img src="https://img.icons8.com/ios/50/null/down-squared--v1.png" height="30" width="30"/></a></span>
+  <span class="lista"><p style="color:#199973;;">Typ</p><a href="{% url 'lista_zwierze' order='typ' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_zwierze' order='-typ' %}"><img src="https://img.icons8.com/ios/50/null/down-squared--v1.png" height="30" width="30"/></a></span>
+  <span class="lista"><p style="color:#199973;;">Rasa</p><a href="{% url 'lista_zwierze' order='rasa' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_zwierze' order='-rasa' %}"><img src="https://img.icons8.com/ios/50/null/down-squared--v1.png" height="30" width="30"/></a></span>
+  <span class="lista"><p style="color:#199973;;">Szacowany wiek</p><a href="{% url 'lista_zwierze' order='szacowany_wiek' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_zwierze' order='-szacowany_wiek' %}"><img src="https://img.icons8.com/ios/50/null/down-squared--v1.png" height="30" width="30"/></a></span>
+  <span class="lista"><p style="color:#199973;;">Numer ewidencyjny</p><a href="{% url 'lista_zwierze' order='numer_ewidencyjny' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_zwierze' order='-numer_ewidencyjny' %}"><img src="https://img.icons8.com/ios/50/null/down-squared--v1.png" height="30" width="30"/></a></span>
+<hr style="border-bottom:1px solid #bbb;">
+  {% for animal in animals %}
+    <div>
+      <span class="lista">{{ animal.imie }}</span>
+      <span class="lista">{{ animal.typ }}</span>
+      <span class="lista">{{ animal.rasa }}</span>
+      <span class="lista">{{ animal.szacowany_wiek }}</span>
+      <span class="lista">{{ animal.numer_ewidencyjny }}</span>
+      <span><a href="{% url 'usun_zwierze' id=animal.id %}">Wyrejestruj zwierze</a></span>
+    </div>
+
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Lista zwierząt adoptowanych{% endblock %}
+
+{% block content %}
+  <h1>Lista adoptowanych</h1>
+<span class="lista"><p style="color:#199973;;">Imie</p><a href="{% url 'lista_adopcji' order='imie_adoptujacego' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_adopcji' order='-imie_adoptujacego' %}"><img src="https://img.icons8.com/ios/50/null/down-squared--v1.png" height="30" width="30"/></a></span>
+  <span class="lista"><p style="color:#199973;;">Nazwisko</p><a href="{% url 'lista_adopcji' order='nazwisko_adoptujacego' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_adopcji' order='-nazwisko_adoptujacego' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a></span>
+  <span class="lista"><p style="color:#199973;;">E-mail</p><a href="{% url 'lista_adopcji' order='email_adoptujacego' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_adopcji' order='-email_adoptujacego' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a></span>
+  <span class="lista"><p style="color:#199973;;">Numer telefonu</p><a href="{% url 'lista_adopcji' order='numer_telefonu_adoptujacego' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_adopcji' order='-numer_telefonu_adoptujacego' %}"><img src="https://img.icons8.com/ios/50/null/down-squared--v1.png" height="30" width="30"/></a></span>
+  <span class="lista"><p style="color:#199973;;">Data adopcji</p><a href="{% url 'lista_adopcji' order='data_adopcji' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_adopcji' order='-data_adopcji' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a></span>
+  <span class="lista"><p style="color:#199973;;">Zwierze</p><a href="{% url 'lista_adopcji' order='zwierze' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a><img src="https://img.icons8.com/ios/50/null/horizontal-line.png" height="30" width="30"/><a href="{% url 'lista_adopcji' order='-zwierze' %}"><img src="https://img.icons8.com/ios/50/null/up-squared.png" height="30" width="30"/></a></span>
+<hr style="border-bottom:1px solid #bbb;">
+{% for adoption in adoptions %}
+    <div>
+      <span class="lista">{{ adoption.imie_adoptujacego }}</span>
+      <span class="lista">{{ adoption.nazwisko_adoptujacego }}</span>
+      <span class="lista">{{ adoption.email_adoptujacego }}</span>
+      <span class="lista">{{ adoption.numer_telefonu_adoptujacego }}</span>
+      <span class="lista">{{ adoption.data_adopcji }}</span>
+      <span class="lista">{{ adoption.zwierze }}</span>
+    </div>
+  {% endfor %}
+{% endblock %}

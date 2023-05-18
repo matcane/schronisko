@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Rejestracja nowego zwierzęcia{% endblock %}
+
+{% block content %}
+  <h1>Rejestracja nowego zwierzęcia</h1>
+  <form method="post">
+        {{ animal_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Zarejestruj zwierze"></p>
+    </form>
+{% endblock %}

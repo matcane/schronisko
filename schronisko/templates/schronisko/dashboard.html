@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Panel główny{% endblock %}
+
+{% block content %}
+  <h1 style="font-size: 50px;" align="center"> Panel główny{% if user.weterynarz %} weterynarza {% else %} pracownika {% endif %}</h1>
+{% endblock %}
+{% block pracownik %}
+    <div class="dashboard-container">
+      <div class="row">
+        <a href="{% url 'rejestruj_zwierze' %}" class="blockp">
+          <img style = "yes; " src="https://img.icons8.com/ios/512/pets.png"  alt="File" width="160" height="160"  />
+        <p style="font-size: 50px;"><b>REJESTRACJA ZWIERZĄT</b></p>
+      </a>
+        <a href="{% url 'adoptuj_zwierze' %}" class="blockp">
+          <img style = "yes; " src="https://img.icons8.com/ios/512/pet.png"  alt="File" width="160" height="160"  />
+        <p style="font-size: 50px;"><b>FORMULARZ ADOPCYJNY</b></p>
+      </a>
+      </div>
+      <div class="row">
+        <a href="{% url 'lista_zwierze'%}" class="blockp">
+          <img style = "yes; " src="https://img.icons8.com/ios/512/animal-shelter.png"  alt="File" width="160" height="160"  />
+        <p style="font-size: 50px;"><b>LISTA ZWIERZĄT</b></p>
+      </a>
+        <a href="{% url 'lista_kojec' order='zwierze' %}" class="blockp">
+          <img style = "yes; " src="https://img.icons8.com/ios-filled/512/jail-doors-with-bars.png"  alt="File" width="160" height="160"  />
+        <p style="font-size: 50px;"><b>LISTA KOJCÓW</b></p>
+      </a>
+      </div>
+      <div class="row">
+        <a href="{% url 'lista_adopcji' %}" class="blockp">
+          <img style = "yes; " src="https://img.icons8.com/ios/100/null/dog-walking.png"  alt="File" width="160" height="160"  />
+        <p style="font-size: 50px;"><b>LISTA ADOPCJI</b></p>
+          </a>
+        <a href="javascript:void(0)" class="blockp" onclick="scrollToTop()">
+          <img style = "yes; " src="https://img.icons8.com/ios/100/null/circled-chevron-up.png"  alt="File" width="160" height="160"  />
+        <p style="font-size: 50px;"><b>DO GÓRY</b></p>
+          </a>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+{% block weterynarz %}
+    <div class="dashboard-container">
+      <div class="row">
+        <a href="{% url 'lista_karty' %}" class="blockw">
+          <img style = "yes; " src="https://img.icons8.com/pastel-glyph/512/docket--v2.png"  alt="File" width="150" height="160"  />
+          <p style="font-size: 50px;"><b>KARTY ZDROWIA</b></p></a>
+        <a href="{% url 'lista_kwarantanna' %}" class="blockw">
+          <img style = "yes; " src="https://img.icons8.com/fluency-systems-filled/512/virus.png"  alt="File" width="160" height="160"  />
+          <p style="font-size: 50px;"><b>KWARANTANNA</b></p></a>
+        <a href="{% url 'lista_badania' %}" class="blockw">
+          <img style = "yes; " src="https://img.icons8.com/pastel-glyph/512/medical-history.png"  alt="File" width="150" height="160"  />
+        <p style="font-size: 48.1px;"><b>PRZEBIEG CHORÓB</b></p>
+      </a>
+      </div>
+    </div>
+{% endblock %}
