@@ -11,3 +11,8 @@ Główne funkcje aplikacji obejmują:
 
 - Baza danych zwierząt: Możliwość przechowywania i aktualizowania informacji na temat zwierząt w schronisku, włączając w to ich historię medyczną oraz miejsce zajmowane w schronisku.
 - Zarządzanie adopcjami: Umożliwia rejestrację procesu adopcyjnego, zarządzanie dokumentacją oraz śledzenie statusu adopcji każdego zwierzęcia.
+
+## Przkładowe widoki
+[![](https://github.com/selfwezmir/img/blob/main/panel%20pracownika.png)](#)
+
+[![](https://github.com/selfwezmir/img/blob/main/panel%20weterynarza.png)](#)
