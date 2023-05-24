@@ -1,4 +1,4 @@
-# schronisko - Aplikacja do monitorowania zwierząt w schronisku
+# Aplikacja do monitorowania zwierząt w schronisku
 ## Użyte technologie: Django
 Projekt aplikacji do monitorowania zwierząt w schronisku został stworzony w celu skutecznego zarządzania schroniskiem i poprawy opieki nad zwierzętami. 
 Aplikacja została opracowana jako część wymagań przedmiotowych na studiach.
