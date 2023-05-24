@@ -9,5 +9,5 @@ Dodatkowo, aplikacja pozwala na rejestrację i zarządzanie adopcjami, co przycz
 
 Główne funkcje aplikacji obejmują:
 
--Baza danych zwierząt: Możliwość przechowywania i aktualizowania informacji na temat zwierząt w schronisku, włączając w to ich historię medyczną oraz mijesce zajmowane w schronisku.
--Zarządzanie adopcjami: Umożliwia rejestrację procesu adopcyjnego, zarządzanie dokumentacją oraz śledzenie statusu adopcji każdego zwierzęcia.
+- Baza danych zwierząt: Możliwość przechowywania i aktualizowania informacji na temat zwierząt w schronisku, włączając w to ich historię medyczną oraz mijesce zajmowane w schronisku.
+- Zarządzanie adopcjami: Umożliwia rejestrację procesu adopcyjnego, zarządzanie dokumentacją oraz śledzenie statusu adopcji każdego zwierzęcia.
