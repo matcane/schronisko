@@ -13,6 +13,6 @@ Główne funkcje aplikacji obejmują:
 - Zarządzanie adopcjami: Umożliwia rejestrację procesu adopcyjnego, zarządzanie dokumentacją oraz śledzenie statusu adopcji każdego zwierzęcia.
 
 ## Przkładowe widoki
-[![](https://github.com/selfwezmir/img/blob/main/panel%20pracownika.png)]()
 
-[![](https://github.com/selfwezmir/img/blob/main/panel%20weterynarza.png)]()
+![panel pracownika](https://github.com/selfwezmir/schronisko/assets/74859664/f94431b2-40fc-4978-9e3d-db07eafc9944)
+![panel weterynarza](https://github.com/selfwezmir/schronisko/assets/74859664/d93df5c6-856b-4d66-b59c-14f58e444cdb)
