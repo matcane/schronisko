@@ -15,4 +15,4 @@ Główne funkcje aplikacji obejmują:
 ## Przkładowe widoki
 
 [![panel pracownika](https://github.com/selfwezmir/schronisko/blob/main/img/panel%20pracownika.png)](#)
-![panel weterynarza](https://github.com/selfwezmir/schronisko/blob/main/img/panel%20pracownika.png)
+[![panel weterynarza](https://github.com/selfwezmir/schronisko/blob/main/img/panel%20pracownika.png)](#)
